@@ -1,28 +1,7 @@
-# New React Project Boilerplate
+# Print Page PDF
 
-An alternative to using create-react-app with Parcel
+Generate a page with a table of contents in a printable format
 
-## How to use
+[![Netlify Status](https://api.netlify.com/api/v1/badges/46846bbe-b321-44ea-bc4b-ca6de3db0492/deploy-status)](https://app.netlify.com/sites/printpagepdf/deploys)
 
-### Clone
-
-```bash
-npm install -g degit
-
-
-degit https://github.com/DarrenXu94/new-react-app#main
-```
-
-Degit removes all the repository git information.
-
-### Install
-
-```bash
-npm i
-```
-
-### Run
-
-```bash
-npm start
-```
+[Live site](https://printpagepdf.netlify.app/)
