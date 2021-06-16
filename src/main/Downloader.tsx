@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Previewer, registerHandlers, Handler } from "pagedjs";
+import html2pdf from "html2pdf.js";
 
 export interface DownloaderProps {}
 
@@ -139,7 +140,39 @@ export default function Downloader() {
           <h1>Table of content</h1>
           <nav id="my-toc-content"></nav>
         </div>
-        <div dangerouslySetInnerHTML={createMarkup()} />
+        {/* <div dangerouslySetInnerHTML={createMarkup()} /> */}
+        <div
+          id="mw-content-text"
+          lang="en"
+          dir="ltr"
+          className="mw-content-ltr"
+        >
+          <h2 id="Pre-digital_era" className="keep-class">
+            Pre-digital era
+          </h2>
+          <h3>Manual typesetting</h3>
+          <p>
+            During much of the{" "}
+            <a href="/wiki/Letterpress_printing" title="Letterpress printing">
+              letterpress era
+            </a>
+            , movable type was composed by hand for each{" "}
+            <a href="/wiki/Page_(paper)" title="Page (paper)">
+              page
+            </a>
+            . Cast metal{" "}
+            <i>
+              <a href="/wiki/Sort_(typesetting)" title="Sort (typesetting)">
+                sorts
+              </a>
+            </i>{" "}
+            were composed into words, then lines, then paragraphs, then pages of
+            text and tightly bound together to make up a <i>form</i>, with all
+            letter faces exactly the same "height to paper", creating an even
+            surface of type. The form was placed in a press, inked, and an
+            impression made on paper.
+          </p>
+        </div>
 
         {/* <div
           id="mw-content-text"
