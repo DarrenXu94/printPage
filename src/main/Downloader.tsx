@@ -74,7 +74,7 @@ class handlers extends Handler {
     createToc({
       content: content,
       tocElement: "#my-toc-content",
-      titleElements: [".mw-content-ltr h2", "h3"],
+      titleElements: ["h2", "h3"],
     });
   }
 }
@@ -86,7 +86,45 @@ let flow = paged.preview().then((flow) => {
 
 registerHandlers(handlers);
 
+const content = `<div
+id="mw-content-text"
+lang="en"
+dir="ltr"
+className="mw-content-ltr"
+>
+<h2 id="Pre-digital_era" className="keep-class">
+  Pre-digital era
+</h2>
+<h3>Manual typesetting</h3>
+<p>
+  During much of the{" "}
+  <a href="/wiki/Letterpress_printing" title="Letterpress printing">
+    letterpress era
+  </a>
+  , movable type was composed by hand for each{" "}
+  <a href="/wiki/Page_(paper)" title="Page (paper)">
+    page
+  </a>
+  . Cast metal{" "}
+  <i>
+    <a href="/wiki/Sort_(typesetting)" title="Sort (typesetting)">
+      sorts
+    </a>
+  </i>{" "}
+  were composed into words, then lines, then paragraphs, then pages of
+  text and tightly bound together to make up a <i>form</i>, with all
+  letter faces exactly the same "height to paper", creating an even
+  surface of type. The form was placed in a press, inked, and an
+  impression made on paper.
+</p>
+</div>`;
+
 export default function Downloader() {
+  const createMarkup = () => {
+    return {
+      __html: content,
+    };
+  };
   return (
     <div id="content" className="mw-body" role="main">
       <h1 id="firstHeading" className="firstHeading" lang="en">
@@ -101,7 +139,9 @@ export default function Downloader() {
           <h1>Table of content</h1>
           <nav id="my-toc-content"></nav>
         </div>
-        <div
+        <div dangerouslySetInnerHTML={createMarkup()} />
+
+        {/* <div
           id="mw-content-text"
           lang="en"
           dir="ltr"
@@ -132,7 +172,7 @@ export default function Downloader() {
             surface of type. The form was placed in a press, inked, and an
             impression made on paper.
           </p>
-        </div>
+        </div> */}
       </div>
     </div>
   );
